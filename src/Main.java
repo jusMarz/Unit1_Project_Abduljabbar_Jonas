@@ -20,7 +20,7 @@ public class Main {
         System.out.println();
 
         double totalTipAmount = (bill * tipPercentage);
-        totalTipAmount = ( (totalTipAmount + .005) - ((totalTipAmount + .005) % .01)); // The '+ .005' and the '%. 01' is for rounding to the nearest two decimal places
+        totalTipAmount = ( (totalTipAmount + .005) - ((totalTipAmount + .005) % .01)); //  The '+ .005' and the '%. 01' is for rounding to the nearest two decimal places
 
         System.out.println("| Total tip amount: $" + totalTipAmount + " |");
 
