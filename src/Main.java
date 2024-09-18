@@ -1,9 +1,13 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        Scanner s = new Scanner(System.in); // Allows the use of user input
+        DecimalFormat df = new DecimalFormat("0.00"); // Formats each number into the decimal format (i.e 4.1 = 4.10) Thanks Lee!
+
         System.out.println("|Do not put any symbols when entering in data (no % or $)|");        // Tells the user not to put any symbols that will mess up the code
+
         System.out.print("Enter in the bill($): ");
         String billUnconverted = s.nextLine();                                                 // Bill Amount
         double bill = Double.parseDouble(billUnconverted);
@@ -20,9 +24,11 @@ public class Main {
         System.out.println();
 
         double totalTipAmount = (bill * tipPercentage);
-        totalTipAmount = ( (totalTipAmount + .005) - ((totalTipAmount + .005) % .01)); //  The '+ .005' and the '%. 01' is for rounding to the nearest two decimal places
 
-        System.out.println("| Total tip amount: $" + totalTipAmount + " |");
+        System.out.println(" Total tip amount: $" + df.format(totalTipAmount));     // Prints Receipt
+        System.out.println(" Total bill cost: $" + df.format(bill + totalTipAmount)); // Holy Skibidi the df.format saved me life Thanks Lee
+        System.out.println(" Tip per person: $" + df.format(totalTipAmount / partySize));
+        System.out.println("  bill per person: $" + df.format((bill / partySize)+(totalTipAmount / partySize))); // YOSHAAAAA I DID IT !!!!
 
 
     }
